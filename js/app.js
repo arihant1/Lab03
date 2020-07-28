@@ -183,14 +183,14 @@ var guess = prompt('Ok, ' + name + ' What\'s your guess\?');
 //This next part is me trying to get some validation done --didnt work out YET.
 //if (!(guess >=10 && guess<0)) {
   //prompt('Please provide a guess between 1 and 10');
-//} else { 
+//} else {
   if (guess > rando) {
   alert('Oh\! So Close\! Just a bit too high...Try again');
 } else {if (guess < rando) {
   alert('Oh\! Soo Soo Close\! Just a bit too low...Try again');
-} else { 
-  { 
-    break
+} else {
+  {
+    break;
   }
 }
 }
