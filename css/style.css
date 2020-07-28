@@ -1,0 +1,38 @@
+
+/* I call the h1 tag the kitchen sink method */
+body {
+  background-color: #12343b;
+  color: black;
+  font-size: 12px;
+}
+
+h1 {
+  background-color: #2d545e; 
+  color: red;
+  font-family: times, monospace, georgia; 
+  font-size: 32px;
+  font-style: italic;
+  font-weight: bold;
+  padding: 20px; 
+}
+
+ul.alpha {
+  background: #e1b382; 
+  font-family: helvetica, ariel, verdana;
+  color: inherit; 
+}
+
+ul.bravo {
+  background: #c89666;
+  font-family: inherit;
+  color: inherit; 
+}
+
+ol.charlie {
+  list-style-position: outside;
+  padding: 30px;
+  list-style-type: upper-latin;
+  border: 1px solid #c89666;
+  color: black;
+  background: #e1b382
+}
