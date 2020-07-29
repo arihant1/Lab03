@@ -12,21 +12,23 @@ alert('Welcome '+ name + '\! I\'m Baloo\.Thanks for visiting');
 //beginning of question and answer time
 //first question - just seeing if they realize what's happening
 
-var test = confirm('Is this a test\?');
+//var test = confirm('Is this a test\?');
 
 //saving it
 
-console.log('This was saved: ' + test);
+//console.log('This was saved: ' + test);
 
 //Letting User Know about their answer
 
-if (test == true) {
-  alert('you are correct');
-} else {
-  alert(' you have choosen poorly ') ;
-}
+//if (test == true) {
+//alert('you are correct');
+//} else {
+//  alert(' you have choosen poorly ') ;
+//}
 
-//first actual question regaring the quiz
+//first actual question regaring the quiz and the score counter
+
+var AnsCounter = 0;
 
 var q1  = prompt('Was Baloo in the Air Force\? \"Yes or No\?\"');
 
@@ -49,6 +51,7 @@ if (q1edit ==='yes' || q1edit ==='y') {
 } else {
   //console.log(name + ' answered correctly');
   alert('Congratulations ' + name + '! You\'re correct!');
+  AnsCounter++;
 }
 
 //Second actual question regaring the quiz
@@ -70,6 +73,7 @@ if (q2edit ==='no' || q2edit ==='n') {
 } else {
   //console.log(name + ' answered correctly');
   alert('Congratulations ' + name + '! You\'re correct!');
+  AnsCounter++;
 }
 
 //third question regaring the quiz
@@ -91,6 +95,7 @@ if (q3edit ==='yes' || q3edit ==='y') {
 } else {
   //console.log(name + ' answered correctly');
   alert('Congratulations ' + name + '! You\'re correct!');
+  AnsCounter++;
 }
 
 //fourth question regaring the quiz
@@ -112,6 +117,7 @@ if (q4edit ==='no' || q4edit ==='n') {
 } else {
   //console.log(name + ' answered correctly');
   alert('Congratulations ' + name + '! You\'re correct!');
+  AnsCounter++;
 }
 
 //fifth actual question regaring the quiz
@@ -133,6 +139,7 @@ if (q5edit ==='yes' || q5edit ==='y') {
 } else {
   //console.log(name + ' answered correctly');
   alert('Congratulations ' + name + '! You\'re correct!');
+  AnsCounter++;
 }
 
 //Last question regaring the quiz
@@ -154,6 +161,7 @@ if (q6edit ==='no' || q6edit ==='n') {
 } else {
   //console.log(name + ' answered correctly');
   alert('Congratulations ' + name + '! You\'re correct!');
+  AnsCounter++;
 }
 
 //------ Lab03 Portion ------
@@ -177,31 +185,47 @@ var count;
 var guess;
 
 //variables assigned now for the Lightning Round
-for (count = 0; count < 5; count++) {
+for (count = 0; count < 4; count++) {
   // Seeing if user has the right guess
-var guess = prompt('Ok, ' + name + ' What\'s your guess\?');
-//This next part is me trying to get some validation done --didnt work out YET.
-//if (!(guess >=10 && guess<0)) {
-  //prompt('Please provide a guess between 1 and 10');
-//} else {
+  guess = (parseInt(prompt('Ok, ' + name + ' What\'s your guess\?')));
+
   if (guess > rando) {
-  alert('Oh\! So Close\! Just a bit too high...Try again');
-} else {if (guess < rando) {
-  alert('Oh\! Soo Soo Close\! Just a bit too low...Try again');
-} else {
-  {
+    alert('Oh\! So Close\! Just a bit too high...Try again');
+  } else {if (guess < rando) {
+    alert('Oh\! Soo Soo Close\! Just a bit too low...Try again');
+  } else { if (guess === rando) {
+    alert('Holy Cow\! You\'ve guessed it\!');
+    AnsCounter++;
     break;
   }
+  }
+  }
 }
-}
-}
-alert('Holy Cow\! You\'ve guessed it\!');
+
+
 
 //Last game of the lab
 //prompting user to play
-alert('Ok' + name + ', last game. Just try and guess which of the following I\'m thinking of');
 
-var array1 = [ 'kangaroo', 'shark', 'dog', 'cat', 'bird', 'snake', 'horse', 'lizard', 'rodent', 'insect', 'dragon', 'phoenix'];
+var LinuxDistros = [ 'MX Linux', 'Manjaro', 'Linux Mint', 'Ubuntu', 'Debian', 'Elementary OS', 'Solus', 'Zorin OS', 'Fedora', 'Deepin'];
 
+var guessLinux = prompt('Ok' + name + ', last game. Just try and guess which linux distro I use');
 
+//Next comes the loops to iterate through the array
+var attempts = 0;
+var allowedAttempts = 5;
 
+while(attempts < allowedAttempts) {
+//need to fix the below code it needs to have another loop to get through all the arrays
+
+  if(LinuxDistros.indexOf(guessLinux) !==-1) {
+    alert('Great Job\!');
+    AnsCounter++;
+    break;
+  } else {
+    guessLinux = prompt('Oh No\, sorry\! try again please');
+    attempts++;
+  }
+}
+
+alert('You answered ' + AnsCounter + ' correctly. Good work.');
